@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fitria Khoirun Nisa — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1F3A;
+    --teal: #1A6B72;
+    --gold: #C9A84C;
+    --cream: #F9F5EE;
+    --light: #EEF4F5;
+    --text: #1C2B3A;
+    --muted: #6B7E8F;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: var(--navy);
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 30%;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(26,107,114,0.2) 0%, transparent 70%);
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px 80px 80px;
+    position: relative; z-index: 2;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold);
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 32px;
+    width: fit-content;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 5vw, 68px);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.0;
+    margin-bottom: 8px;
+  }
+
+  .hero-name span {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .hero-title {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    font-weight: 400;
+  }
+
+  .hero-desc {
+    color: rgba(255,255,255,0.75);
+    font-size: 15px;
+    line-height: 1.8;
+    max-width: 440px;
+    margin-bottom: 40px;
+  }
+
+  .hero-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+
+  .hero-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+  }
+
+  .hero-contact-item .dot {
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 12px 28px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: all 0.3s;
+  }
+  .btn-primary:hover { background: #dfc06e; transform: translateY(-2px); }
+
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.75);
+    padding: 12px 28px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .btn-outline:hover { border-color: rgba(255,255,255,0.6); color: #fff; }
+
+  .hero-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 60px 60px 40px;
+    position: relative; z-index: 2;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .stat-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 28px 24px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stat-card:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateY(-4px);
+    border-color: rgba(201,168,76,0.3);
+  }
+
+  .stat-card.featured {
+    grid-column: span 2;
+    background: linear-gradient(135deg, rgba(201,168,76,0.2) 0%, rgba(26,107,114,0.2) 100%);
+    border-color: rgba(201,168,76,0.3);
+  }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-number.lg {
+    font-size: 42px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    line-height: 1.4;
+  }
+
+  /* ─── NAV ─── */
+  .nav {
+    background: var(--navy);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    gap: 0;
+  }
+
+  .nav-link {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    padding: 16px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav-link:hover {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  /* ─── SECTIONS ─── */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 40px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 48px;
+    line-height: 1.2;
+  }
+
+  .section-title span {
+    color: var(--teal);
+    font-style: italic;
+  }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    background: linear-gradient(90deg, var(--navy) 0%, var(--teal) 50%, var(--navy) 100%);
+    height: 1px;
+    opacity: 0.15;
+  }
+
+  /* ─── EXPERIENCE ─── */
+  #experience { background: #fff; }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    margin-bottom: 56px;
+    padding-bottom: 56px;
+    border-bottom: 1px solid #E8EDF2;
+  }
+
+  .exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .exp-meta { padding-top: 4px; }
+
+  .exp-period {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .exp-org {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--teal);
+    margin-bottom: 6px;
+  }
+
+  .exp-loc {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .exp-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+
+  .exp-desc {
+    font-size: 14px;
+    color: #4A5B6B;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .exp-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .exp-highlight {
+    display: flex;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .exp-highlight::before {
+    content: '▸';
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-size: 12px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(26,107,114,0.08);
+    color: var(--teal);
+    border: 1px solid rgba(26,107,114,0.2);
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  .badge.gold {
+    background: rgba(201,168,76,0.1);
+    color: #9B7A28;
+    border-color: rgba(201,168,76,0.3);
+  }
+
+  /* ─── INNOVATIONS ─── */
+  #innovation { background: var(--cream); }
+
+  .innovation-card {
+    background: var(--navy);
+    border-radius: 16px;
+    padding: 48px 52px;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+
+  .innovation-card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle at top right, rgba(201,168,76,0.15), transparent 70%);
+  }
+
+  .innovation-tag {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .innovation-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+
+  .innovation-subtitle {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 24px;
+  }
+
+  .innovation-desc {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  .innovation-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .feature-chip {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.7);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .innovation-award {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 12px;
+    padding: 28px;
+    text-align: center;
+    position: relative; z-index: 1;
+  }
+
+  .innovation-award-icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+  }
+
+  .innovation-award-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .innovation-award-desc {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+  }
+
+  /* ─── ACHIEVEMENTS ─── */
+  #achievements { background: #fff; }
+
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .ach-card {
+    border: 1px solid #E0E8ED;
+    border-radius: 12px;
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .ach-card:hover {
+    border-color: var(--teal);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(26,107,114,0.1);
+  }
+
+  .ach-card.top {
+    border-color: var(--gold);
+    background: linear-gradient(135deg, #FFFBF0 0%, #FFF 100%);
+  }
+
+  .ach-year {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .ach-icon {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+
+  .ach-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .ach-org {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ─── CERTIFICATIONS ─── */
+  #certifications { background: var(--cream); }
+
+  .cert-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .cert-item {
+    background: #fff;
+    border: 1px solid #E0E8ED;
+    border-radius: 10px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.3s;
+  }
+
+  .cert-item:hover {
+    border-color: var(--teal);
+    box-shadow: 0 4px 16px rgba(26,107,114,0.08);
+  }
+
+  .cert-item.featured {
+    background: var(--navy);
+    border-color: var(--navy);
+  }
+
+  .cert-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    background: rgba(26,107,114,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .cert-item.featured .cert-icon {
+    background: rgba(201,168,76,0.2);
+  }
+
+  .cert-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 3px;
+  }
+
+  .cert-item.featured .cert-name {
+    color: #fff;
+  }
+
+  .cert-issuer {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .cert-item.featured .cert-issuer {
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ─── SKILLS ─── */
+  #skills { background: #fff; }
+
+  .skills-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .skill-group-title {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--teal);
+    display: inline-block;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill-tag {
+    background: var(--light);
+    color: var(--text);
+    padding: 7px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid #DDE6EC;
+  }
+
+  /* ─── MC SECTION ─── */
+  #mc { background: var(--navy); }
+
+  #mc .section-label { color: var(--gold); }
+  #mc .section-title { color: #fff; }
+  #mc .section-title span { color: var(--gold); }
+
+  .mc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+
+  .mc-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 28px 24px;
+    transition: all 0.3s;
+  }
+
+  .mc-card:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(201,168,76,0.3);
+    transform: translateY(-4px);
+  }
+
+  .mc-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
+  .mc-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .mc-year {
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .mc-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+  }
+
+  .mc-cta {
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  /* ─── EDUCATION ─── */
+  #education { background: var(--cream); }
+
+  .edu-card {
+    background: #fff;
+    border: 1px solid #E0E8ED;
+    border-radius: 16px;
+    padding: 40px 44px;
+    display: flex;
+    gap: 36px;
+    align-items: flex-start;
+  }
+
+  .edu-logo {
+    width: 64px; height: 64px;
+    background: var(--navy);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+
+  .edu-degree {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .edu-uni {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--teal);
+    margin-bottom: 6px;
+  }
+
+  .edu-period {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .edu-detail {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .edu-chip {
+    background: linear-gradient(135deg, rgba(201,168,76,0.1) 0%, rgba(26,107,114,0.1) 100%);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--navy);
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--navy);
+    padding: 48px 40px;
+    text-align: center;
+  }
+
+  .footer-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .footer-role {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .footer-link {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+  }
+
+  .footer-link:hover { color: var(--gold); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .hero {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+    .hero-left { padding: 60px 32px; }
+    .hero-right { padding: 0 32px 60px; }
+    .stats-grid { max-width: 100%; }
+
+    .exp-item { grid-template-columns: 1fr; gap: 12px; }
+    .exp-meta { padding: 0; }
+
+    .innovation-card { grid-template-columns: 1fr; }
+    .achievements-grid { grid-template-columns: 1fr 1fr; }
+    .cert-list { grid-template-columns: 1fr; }
+    .skills-container { grid-template-columns: 1fr; }
+    .mc-grid { grid-template-columns: 1fr; }
+
+    .section { padding: 60px 24px; }
+    .nav-inner { padding: 0 24px; overflow-x: auto; }
+  }
+
+  @media (max-width: 600px) {
+    .achievements-grid { grid-template-columns: 1fr; }
+    .edu-card { flex-direction: column; gap: 20px; padding: 28px 24px; }
+    .innovation-card { padding: 32px 28px; }
+  }
+
+  /* ─── ANIMATION ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-left > * {
+    animation: fadeUp 0.7s ease forwards;
+    opacity: 0;
+  }
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.4s; }
+  .hero-left > *:nth-child(5) { animation-delay: 0.5s; }
+  .hero-left > *:nth-child(6) { animation-delay: 0.6s; }
+
+  .stat-card {
+    animation: fadeUp 0.7s ease forwards;
+    opacity: 0;
+  }
+  .stat-card:nth-child(1) { animation-delay: 0.4s; }
+  .stat-card:nth-child(2) { animation-delay: 0.5s; }
+  .stat-card:nth-child(3) { animation-delay: 0.6s; }
+  .stat-card:nth-child(4) { animation-delay: 0.7s; }
+  .stat-card:nth-child(5) { animation-delay: 0.8s; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">✦ Open to Work</div>
+    <h1 class="hero-name">Fitria<br><span>Khoirun Nisa</span></h1>
+    <p class="hero-title">Relationship Officer · Compliance · Business Development</p>
+    <p class="hero-desc">
+      Profesional dengan 5+ tahun pengalaman di BPJS Kesehatan, spesialis pengelolaan klien B2B skala besar, audit kepatuhan, dan pengembangan bisnis. Lulusan UGM Cum Laude.
+    </p>
+    <div class="hero-contacts">
+      <div class="hero-contact-item"><span class="dot"></span> fitria.fkn@gmail.com</div>
+      <div class="hero-contact-item"><span class="dot"></span> 082190037374</div>
+      <div class="hero-contact-item"><span class="dot"></span> Pati, Jawa Tengah, Indonesia</div>
+    </div>
+    <div class="hero-cta">
+      <a href="mailto:fitria.fkn@gmail.com" class="btn-primary">Hubungi Saya</a>
+      <a href="https://bit.ly/linkedIn-Fitria" target="_blank" class="btn-outline">LinkedIn →</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="stats-grid">
+      <div class="stat-card featured">
+        <div class="stat-number lg">Rp 11+ M</div>
+        <div class="stat-label">Total pendapatan iuran yang dikontribusikan s.d. 2025</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">257%</div>
+        <div class="stat-label">Capaian kepatuhan terhadap target</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">385</div>
+        <div class="stat-label">Badan usaha & instansi dikelola</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">90</div>
+        <div class="stat-label">Badan usaha baru berhasil direkrut</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">5+</div>
+        <div class="stat-label">Tahun pengalaman profesional</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#experience" class="nav-link">Pengalaman</a>
+    <a href="#innovation" class="nav-link">Inovasi</a>
+    <a href="#achievements" class="nav-link">Prestasi</a>
+    <a href="#certifications" class="nav-link">Sertifikasi</a>
+    <a href="#skills" class="nav-link">Keahlian</a>
+    <a href="#mc" class="nav-link">Master of Ceremony</a>
+    <a href="#education" class="nav-link">Pendidikan</a>
+  </div>
+</nav>
+
+<!-- ═══════════ EXPERIENCE ═══════════ -->
+<section id="experience">
+  <div class="section">
+    <div class="section-label">Pengalaman Kerja</div>
+    <h2 class="section-title">Rekam Jejak <span>Profesional</span></h2>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Apr 2021 – Apr 2026</div>
+        <div class="exp-org">BPJS Kesehatan</div>
+        <div class="exp-loc">KC Pati, Jawa Tengah</div>
+      </div>
+      <div>
+        <div class="exp-role">Relationship Officer <span class="badge gold">5 Tahun</span></div>
+        <p class="exp-desc">Bertanggung jawab atas pengelolaan portofolio badan usaha dan instansi pemerintah, pelaksanaan pengawasan kepatuhan, rekrutmen peserta baru, serta pengembangan inovasi layanan kepesertaan JKN.</p>
+        <div class="exp-highlights">
+          <div class="exp-highlight">Meraih penghargaan <strong>Compliance Officer of The Month</strong> Kategori Pratama 2025 berdasarkan capaian pendapatan iuran tertinggi.</div>
+          <div class="exp-highlight">Berkontribusi realisasi pendapatan perluasan dan kepatuhan Badan Usaha sebesar <strong>Rp 11,1 Miliar</strong> s.d. Oktober 2025.</div>
+          <div class="exp-highlight">Melaksanakan pengawasan kepatuhan 156 badan usaha dengan capaian <strong>257,61%</strong> dari target tahun 2025.</div>
+          <div class="exp-highlight">Mengelola <strong>385 Badan Usaha</strong> dan 76 Instansi Pemerintah segmen PPUPN; melakukan rekonsiliasi data kepesertaan.</div>
+          <div class="exp-highlight">Berhasil merekrut <strong>90 badan usaha baru</strong> skala besar, menengah, dan kecil sebagai peserta JKN.</div>
+          <div class="exp-highlight">Mengembangkan inovasi <strong>PANTURA</strong> (Pemantauan Wasrik Badan Usaha) — meraih Inovasi Terbaik Festival Inovasi Tingkat Wilayah 2025.</div>
+          <div class="exp-highlight">Masuk daftar apresiasi program <strong>Aku Patuh</strong> nasional BPJS Kesehatan bulan April 2025.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Okt – Nov 2020</div>
+        <div class="exp-org">Ruangguru</div>
+        <div class="exp-loc">Remote</div>
+      </div>
+      <div>
+        <div class="exp-role">Sales Trainee — Outbound Education Consultant</div>
+        <div class="exp-highlights">
+          <div class="exp-highlight">Memberikan edukasi dan konsultasi produk kepada lebih dari <strong>500 calon pelanggan</strong>.</div>
+          <div class="exp-highlight">Mengoperasikan CRM tools untuk menjaga kualitas hubungan pelanggan dan mendorong retensi pengguna.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ═══════════ INNOVATION ═══════════ -->
+<section id="innovation">
+  <div class="section">
+    <div class="section-label">Inovasi</div>
+    <h2 class="section-title">Karya <span>Inovatif</span></h2>
+
+    <div class="innovation-card">
+      <div>
+        <div class="innovation-tag">🏆 Inovasi Terbaik Cluster Kepesertaan — Festival Inovasi Wilayah 2025</div>
+        <h3 class="innovation-title">PANTURA</h3>
+        <div class="innovation-subtitle">Pemantauan Wasrik Badan Usaha</div>
+        <p class="innovation-desc">
+          Solusi all-in-one berbasis VBA Excel dengan penyimpanan terpusat melalui OneDrive/SharePoint. Dirancang untuk menyederhanakan dan menstandarisasi proses pengawasan dan pemeriksaan kepatuhan badan usaha di lingkungan BPJS Kesehatan KC Pati. Ditetapkan melalui SK Kepala Cabang Nomor 17 Tahun 2025.
+        </p>
+        <div class="innovation-features">
+          <span class="feature-chip">VBA Excel Advanced</span>
+          <span class="feature-chip">OneDrive/SharePoint</span>
+          <span class="feature-chip">Form Inquiry Awasrik</span>
+          <span class="feature-chip">Auto Rekap SPHP</span>
+          <span class="feature-chip">Dashboard Pemantauan</span>
+          <span class="feature-chip">Telegram Reminder</span>
+          <span class="feature-chip">Berita Acara PDTT</span>
+        </div>
+      </div>
+      <div class="innovation-award">
+        <div class="innovation-award-icon">🏅</div>
+        <div class="innovation-award-title">Inovasi Terbaik<br>Cluster Kepesertaan</div>
+        <div class="innovation-award-desc">Festival Inovasi Tingkat Wilayah<br>BPJS Kesehatan 2025<br><br>SK Kepala Cabang No. 17 Tahun 2025</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ═══════════ ACHIEVEMENTS ═══════════ -->
+<section id="achievements">
+  <div class="section">
+    <div class="section-label">Prestasi & Penghargaan</div>
+    <h2 class="section-title">Pencapaian <span>Terbaik</span></h2>
+
+    <div class="achievements-grid">
+      <div class="ach-card top">
+        <div class="ach-year">2025</div>
+        <div class="ach-icon">🥇</div>
+        <div class="ach-title">Compliance Officer of The Month — Kategori Pratama</div>
+        <div class="ach-org">BPJS Kesehatan KC Pati · Berdasarkan capaian pendapatan iuran hasil pemeriksaan kepatuhan tertinggi</div>
+      </div>
+      <div class="ach-card top">
+        <div class="ach-year">2025</div>
+        <div class="ach-icon">💡</div>
+        <div class="ach-title">Inovasi Terbaik Cluster Kepesertaan</div>
+        <div class="ach-org">Festival Inovasi Tingkat Wilayah BPJS Kesehatan · Tim Pengembang PANTURA</div>
+      </div>
+      <div class="ach-card top">
+        <div class="ach-year">2025</div>
+        <div class="ach-icon">📊</div>
+        <div class="ach-title">Apresiasi Program Aku Patuh Nasional</div>
+        <div class="ach-org">BPJS Kesehatan Kantor Pusat · Bulan April 2025 — Top nasional pendapatan iuran hasil wasrik</div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-year">2023</div>
+        <div class="ach-icon">🗣️</div>
+        <div class="ach-title">Round of 8 — English Debate Competition</div>
+        <div class="ach-org">English Club BPJS Kesehatan 2023</div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-year">2022</div>
+        <div class="ach-icon">🎬</div>
+        <div class="ach-title">2nd Runner Up YODA Video Competition</div>
+        <div class="ach-org">BPJS Kesehatan Nasional · Kantor Cabang Pati — Kompetisi diikuti seluruh KC se-Indonesia</div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-year">2019</div>
+        <div class="ach-icon">🌟</div>
+        <div class="ach-title">National Best Talents — IndonesiaNEXT</div>
+        <div class="ach-org">Telkomsel · Program pengembangan talenta nasional</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ═══════════ CERTIFICATIONS ═══════════ -->
+<section id="certifications">
+  <div class="section">
+    <div class="section-label">Sertifikasi & Lisensi</div>
+    <h2 class="section-title">Kompetensi <span>Tersertifikasi</span></h2>
+
+    <div class="cert-list">
+      <div class="cert-item featured">
+        <div class="cert-icon">📜</div>
+        <div>
+          <div class="cert-name">CICO — Certified Inspecting & Compliance Officer</div>
+          <div class="cert-issuer">BNSP · Badan Nasional Sertifikasi Profesi · 2024 · Valid 3 Tahun</div>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon">💻</div>
+        <div>
+          <div class="cert-name">Microsoft Office Specialist</div>
+          <div class="cert-issuer">Certiport · 2020</div>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon">🤝</div>
+        <div>
+          <div class="cert-name">Stakeholders Engagement & Effective Communication Skills</div>
+          <div class="cert-issuer">Talkinc · 2021</div>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon">🏥</div>
+        <div>
+          <div class="cert-name">Bimtek PTT BPJS Kesehatan Jawa Tengah & DIY</div>
+          <div class="cert-issuer">BPJS Kesehatan · 2021</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ═══════════ SKILLS ═══════════ -->
+<section id="skills">
+  <div class="section">
+    <div class="section-label">Keahlian</div>
+    <h2 class="section-title">Keterampilan <span>Utama</span></h2>
+
+    <div class="skills-container">
+      <div>
+        <div class="skill-group-title">Teknis & Analitik</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Microsoft Excel Advanced</span>
+          <span class="skill-tag">Basic VBA</span>
+          <span class="skill-tag">Google Sheets</span>
+          <span class="skill-tag">EDABU</span>
+          <span class="skill-tag">CRM Tools</span>
+          <span class="skill-tag">PowerPoint</span>
+          <span class="skill-tag">Canva</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group-title">B2B & Compliance</div>
+        <div class="skill-tags">
+          <span class="skill-tag">B2B Client Management</span>
+          <span class="skill-tag">Compliance Audit</span>
+          <span class="skill-tag">Stakeholder Management</span>
+          <span class="skill-tag">Negosiasi</span>
+          <span class="skill-tag">Business Development</span>
+          <span class="skill-tag">Rekrutmen Peserta</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group-title">Komunikasi & Soft Skills</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Public Speaking</span>
+          <span class="skill-tag">Master of Ceremony</span>
+          <span class="skill-tag">Presentasi</span>
+          <span class="skill-tag">Edukasi Klien</span>
+          <span class="skill-tag">Bahasa Inggris (TOEFL 503)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ═══════════ MASTER OF CEREMONY ═══════════ -->
+<section id="mc">
+  <div class="section">
+    <div class="section-label">Master of Ceremony</div>
+    <h2 class="section-title">Pengalaman <span>MC Profesional</span></h2>
+
+    <div class="mc-grid">
+      <div class="mc-card">
+        <div class="mc-icon">🎙️</div>
+        <div class="mc-year">2025</div>
+        <div class="mc-title">MC Rekonsiliasi Bersama Pemerintah Daerah</div>
+        <div class="mc-desc">Kabupaten Pati, Rembang, dan Blora — acara resmi kelembagaan BPJS Kesehatan KC Pati</div>
+      </div>
+      <div class="mc-card">
+        <div class="mc-icon">🎤</div>
+        <div class="mc-year">2025</div>
+        <div class="mc-title">MC Pisah Sambut Pimpinan</div>
+        <div class="mc-desc">Acara internal BPJS Kesehatan KC Pati untuk serah terima jabatan pimpinan</div>
+      </div>
+      <div class="mc-card">
+        <div class="mc-icon">🎙️</div>
+        <div class="mc-year">2023</div>
+        <div class="mc-title">MC Rekonsiliasi Bersama Pemda</div>
+        <div class="mc-desc">Kabupaten Pati, Rembang, dan Blora — kegiatan koordinasi lintas instansi</div>
+      </div>
+    </div>
+
+    <div class="mc-cta">
+      <a href="https://sites.google.com/view/masterofceremonyfitria" target="_blank" class="btn-primary">Lihat Portfolio MC Lengkap →</a>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ═══════════ EDUCATION ═══════════ -->
+<section id="education">
+  <div class="section">
+    <div class="section-label">Pendidikan</div>
+    <h2 class="section-title">Latar Belakang <span>Akademik</span></h2>
+
+    <div class="edu-card">
+      <div class="edu-logo">🎓</div>
+      <div>
+        <div class="edu-degree">S1 Penyuluhan dan Komunikasi Pertanian</div>
+        <div class="edu-uni">Universitas Gadjah Mada (UGM), Yogyakarta</div>
+        <div class="edu-period">2016 – 2020 · Fakultas Pertanian</div>
+        <div class="edu-detail">
+          <span class="edu-chip">IPK 3,67 / 4,00</span>
+          <span class="edu-chip">Predikat Cum Laude</span>
+          <span class="edu-chip">Komunikasi & Stakeholder Engagement</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="footer-name">Fitria Khoirun Nisa</div>
+  <div class="footer-role">Relationship Officer · Compliance · Business Development</div>
+  <div class="footer-links">
+    <a href="mailto:fitria.fkn@gmail.com" class="footer-link">fitria.fkn@gmail.com</a>
+    <a href="https://bit.ly/linkedIn-Fitria" target="_blank" class="footer-link">LinkedIn</a>
+    <a href="https://sites.google.com/view/masterofceremonyfitria" target="_blank" class="footer-link">MC Portfolio</a>
+    <a href="tel:082190037374" class="footer-link">082190037374</a>
+  </div>
+</footer>
+
+</body>
+</html>
